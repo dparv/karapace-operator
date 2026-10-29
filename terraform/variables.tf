@@ -51,3 +51,12 @@ variable "machines" {
   type        = set(string)
   default     = []
 }
+
+variable "endpoint_bindings" {
+  description = "Endpoint bindings of the application. Leave endpoint unset to set the default space of the application."
+  type = set(object({
+    endpoint = optional(string)
+    space    = string
+  }))
+  default = null
+}
